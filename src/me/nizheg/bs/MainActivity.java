@@ -3,6 +3,10 @@ package me.nizheg.bs;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -17,6 +21,10 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        WebView myWebView = (WebView) findViewById(R.id.webView);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        myWebView.setWebViewClient(new WebViewClient());
     }
 
     public void onToggleClicked(View view) {
@@ -35,4 +43,11 @@ public class MainActivity extends Activity {
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(characterList, 0, 4);
     }
+
+    public void onGoClicked(View view) {
+        WebView myWebView = (WebView) findViewById(R.id.webView);
+        EditText urlView = (EditText) findViewById(R.id.editText);
+        myWebView.loadUrl(urlView.getText().toString());
+    }
+
 }
