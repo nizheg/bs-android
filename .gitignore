@@ -24,3 +24,9 @@ proguard/
 
 # Log Files
 *.log
+
+# IntelliJ IDEA project files
+**/.idea/
+*.iml
+*.iws
+*.tar.gz
