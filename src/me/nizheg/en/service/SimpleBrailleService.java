@@ -1,4 +1,4 @@
-package me.nizheg.en;
+package me.nizheg.en.service;
 
 import java.util.HashMap;
 import java.util.Map;

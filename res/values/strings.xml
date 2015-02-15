@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">EN</string>
-    <string name="action_settings">Test</string>
+    <string name="action_open_browser">Open browser</string>
 </resources>

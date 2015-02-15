@@ -1,31 +1,31 @@
-package me.nizheg.en;
+package me.nizheg.en.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import me.nizheg.en.R;
+import me.nizheg.en.service.SimpleBrailleService;
 
 public class MainActivity extends Activity {
 
     private SimpleBrailleService simpleBrailleService = new SimpleBrailleService();
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        WebView myWebView = (WebView) findViewById(R.id.webView);
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        myWebView.setWebViewClient(new WebViewClient());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        calculateAndDisplayBraille();
     }
 
     @Override
@@ -35,9 +35,27 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    public void onToggleClicked(View view) {
-        // Is the toggle on?
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_open_browser:
+                openBrowserActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
+    private void openBrowserActivity() {
+        Intent intent = new Intent(this, BrowserActivity.class);
+        startActivity(intent);
+    }
+
+    public void onToggleClicked(View view) {
+        calculateAndDisplayBraille();
+    }
+
+    private void calculateAndDisplayBraille() {
         boolean isChecked1 = ((ToggleButton) findViewById(R.id.toggleButton1)).isChecked();
         boolean isChecked2 = ((ToggleButton) findViewById(R.id.toggleButton2)).isChecked();
         boolean isChecked3 = ((ToggleButton) findViewById(R.id.toggleButton3)).isChecked();
@@ -51,11 +69,4 @@ public class MainActivity extends Activity {
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(characterList, 0, 4);
     }
-
-    public void onGoClicked(View view) {
-        WebView myWebView = (WebView) findViewById(R.id.webView);
-        EditText urlView = (EditText) findViewById(R.id.editText);
-        myWebView.loadUrl(urlView.getText().toString());
-    }
-
 }

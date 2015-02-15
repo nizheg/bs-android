@@ -5,30 +5,6 @@
     android:layout_height="fill_parent"
     android:weightSum="1"
     android:gravity="bottom|right">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:inputType="textUri"
-        android:layout_weight="0.2"/>
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Go"
-        android:id="@+id/button"
-        android:layout_weight="0.8"
-        android:onClick="onGoClicked"/>
-    </LinearLayout>
-
-    <WebView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/webView"
-        android:layout_weight="0.89"/>
 
     <TableLayout
         android:layout_width="wrap_content"
