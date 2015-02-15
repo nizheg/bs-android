@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         boolean isChecked6 = ((ToggleButton) findViewById(R.id.toggleButton6)).isChecked();
 
         char[] characterList = simpleBrailleService.getAllPossibleVariants(
-            new boolean[]{isChecked1, isChecked2, isChecked3, isChecked4, isChecked5, isChecked6});
+                new boolean[]{isChecked1, isChecked2, isChecked3, isChecked4, isChecked5, isChecked6});
 
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(characterList, 0, 4);
