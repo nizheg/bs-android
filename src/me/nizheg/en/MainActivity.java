@@ -1,4 +1,4 @@
-package me.nizheg.bs;
+package me.nizheg.en;
 
 import android.app.Activity;
 import android.os.Bundle;
