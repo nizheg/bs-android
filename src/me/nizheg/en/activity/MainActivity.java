@@ -3,8 +3,11 @@ package me.nizheg.en.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import me.nizheg.en.R;
 
 public class MainActivity extends Activity {
@@ -13,36 +16,37 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        initializeListView();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    private void initializeListView() {
+        ListView listView = (ListView) findViewById(R.id.listView);
+
+        String[] captions = new String[]{
+                getResources().getString(R.string.activity_caption_browser),
+                getResources().getString(R.string.activity_caption_braille)
+        };
+
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, captions);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            private Class<?>[] activities = new Class<?>[]{
+                    BrowserActivity.class,
+                    BrailleActivity.class
+            };
+
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                startActivity(activities[position]);
+            }
+        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_open_browser:
-                openBrowserActivity();
-                return true;
-            case R.id.action_open_braille:
-                openBrailleActivity();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
-    private void openBrowserActivity() {
-        Intent intent = new Intent(this, BrowserActivity.class);
-        startActivity(intent);
-    }
-
-    private void openBrailleActivity() {
-        Intent intent = new Intent(this, BrailleActivity.class);
+    private void startActivity(Class<?> clazz) {
+        Intent intent = new Intent(this, clazz);
         startActivity(intent);
     }
 }

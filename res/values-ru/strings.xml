@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">EN</string>
-    <string name="action_open_browser">Открыть браузер</string>
-    <string name="action_open_braille">Открыть "Шифр Брайля"</string>
+    <string name="activity_caption_browser">Браузер</string>
+    <string name="activity_caption_braille">Брайль</string>
+    <string name="action_home">На главную страницу</string>
 </resources>

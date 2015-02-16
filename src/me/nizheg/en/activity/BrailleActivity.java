@@ -1,14 +1,14 @@
 package me.nizheg.en.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
 import me.nizheg.en.R;
 import me.nizheg.en.service.SimpleBrailleService;
 
-public class BrailleActivity extends Activity {
+public class BrailleActivity extends SubActivity {
 
     private SimpleBrailleService simpleBrailleService = new SimpleBrailleService();
 

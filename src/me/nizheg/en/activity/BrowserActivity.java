@@ -1,6 +1,5 @@
 package me.nizheg.en.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -10,7 +9,7 @@ import android.widget.EditText;
 
 import me.nizheg.en.R;
 
-public class BrowserActivity extends Activity {
+public class BrowserActivity extends SubActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

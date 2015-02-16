@@ -17,9 +17,9 @@
         </activity>
         <activity
             android:name=".activity.BrowserActivity"
-            android:label="Browser" />
+            android:label="@string/activity_caption_browser" />
         <activity
             android:name=".activity.BrailleActivity"
-            android:label="Braille"/>
+            android:label="@string/activity_caption_braille"/>
     </application>
 </manifest> 
