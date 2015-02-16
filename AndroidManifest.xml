@@ -17,7 +17,8 @@
         </activity>
         <activity
             android:name=".activity.BrowserActivity"
-            android:label="@string/activity_caption_browser" />
+            android:label="@string/activity_caption_browser"
+            android:windowSoftInputMode="stateUnchanged"/>
         <activity
             android:name=".activity.BrailleActivity"
             android:label="@string/activity_caption_braille"/>

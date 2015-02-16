@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">EN</string>
+    <string name="app_name">EN</string>
     <string name="activity_caption_browser">Browser</string>
     <string name="activity_caption_braille">Braille</string>
     <string name="action_home">Home</string>
+    <string name="browser_go">Go</string>
 </resources>
