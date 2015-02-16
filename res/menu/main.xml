@@ -1,8 +1,13 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/action_open_browser"
         android:orderInCategory="100"
         android:title="@string/action_open_browser"/>
+
+    <item
+        android:id="@+id/action_open_braille"
+        android:orderInCategory="200"
+        android:title="@string/action_open_braille"/>
 
 </menu>

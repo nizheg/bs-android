@@ -18,5 +18,8 @@
         <activity
             android:name=".activity.BrowserActivity"
             android:label="Browser" />
+        <activity
+            android:name=".activity.BrailleActivity"
+            android:label="Braille"/>
     </application>
 </manifest> 

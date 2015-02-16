@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">EN</string>
     <string name="action_open_browser">Открыть браузер</string>
+    <string name="action_open_braille">Открыть "Шифр Брайля"</string>
 </resources>

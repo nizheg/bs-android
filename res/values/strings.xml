@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name" translatable="false">EN</string>
     <string name="action_open_browser">Open browser</string>
+    <string name="action_open_braille">Open braille</string>
 </resources>
