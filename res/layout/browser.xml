@@ -6,23 +6,42 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_media_rew"
+            android:onClick="onBack"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_media_ff"
+            android:onClick="onForward"/>
 
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:inputType="textUri"
-            android:layout_weight="0.2" />
+            android:layout_weight="0.07"/>
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/browser_go"
-            android:id="@+id/button"
-            android:layout_weight="0.8"
-            android:onClick="onGoClicked" />
+            android:id="@+id/refreshStopButton"
+            android:background="@android:drawable/ic_menu_rotate"
+            android:onClick="onStartStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:visibility="gone"/>
 
     <WebView
         android:layout_width="fill_parent"
@@ -30,6 +49,6 @@
         android:id="@+id/webView"
         android:layout_weight="0.89"
         android:focusable="true"
-        android:focusableInTouchMode="true" />
+        android:focusableInTouchMode="true"/>
 
 </LinearLayout>

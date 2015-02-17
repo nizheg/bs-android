@@ -3,18 +3,19 @@ package me.nizheg.en.activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.webkit.HttpAuthHandler;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.webkit.*;
+import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.ProgressBar;
 import me.nizheg.en.R;
 
 public class BrowserActivity extends SubActivity {
 
+    public static final String MY_HOST = "en-nizheg.rhcloud.com";
     WebView webView;
     EditText urlView;
+    Button refreshStopButton;
+    ProgressBar progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,9 @@ public class BrowserActivity extends SubActivity {
         setContentView(R.layout.browser);
         initializeWebView();
         initializeUrlView();
+        refreshStopButton = (Button) findViewById(R.id.refreshStopButton);
+        refreshStopButton.setTag(Boolean.FALSE);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
 
     @Override
@@ -39,6 +43,7 @@ public class BrowserActivity extends SubActivity {
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebChromeClient(new MyWebChromeClient());
     }
 
     private void initializeUrlView() {
@@ -46,19 +51,35 @@ public class BrowserActivity extends SubActivity {
         urlView.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     openUrl();
                     return true;
                 }
                 return false;
             }
         });
-        urlView.setText("http://en-nizheg.rhcloud.com/");
+        urlView.setText(MY_HOST);
         openUrl();
     }
 
-    public void onGoClicked(View view) {
-        openUrl();
+    public void onStartStop(View view) {
+        if (Boolean.TRUE.equals(refreshStopButton.getTag())) {
+            webView.stopLoading();
+        } else {
+            webView.reload();
+        }
+    }
+
+    public void onBack(View view) {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        }
+    }
+
+    public void onForward(View view) {
+        if (webView.canGoForward()) {
+            webView.goForward();
+        }
     }
 
     @Override
@@ -82,11 +103,39 @@ public class BrowserActivity extends SubActivity {
         webView.loadUrl(url);
     }
 
-    private static class MyWebViewClient extends WebViewClient {
+    private class MyWebViewClient extends WebViewClient {
         @Override
         public void onReceivedHttpAuthRequest(WebView view,
-                                              HttpAuthHandler handler, String host, String realm) {
-            handler.proceed("nizheg", "12345");
+            HttpAuthHandler handler, String host, String realm) {
+            if (host.equals(MY_HOST)) {
+                handler.proceed("nizheg", "12345");
+            }
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            boolean result = super.shouldOverrideUrlLoading(view, url);
+            urlView.setText(url);
+            return result;
+        }
+    }
+
+    private class MyWebChromeClient extends WebChromeClient {
+        public void onProgressChanged(WebView view, int progress) {
+
+            if (progress < 100 && progressBar.getVisibility() == ProgressBar.GONE) {
+                progressBar.setVisibility(ProgressBar.VISIBLE);
+                refreshStopButton
+                    .setBackgroundDrawable(getResources().getDrawable(android.R.drawable.ic_delete));
+                refreshStopButton.setTag(Boolean.TRUE);
+            }
+            progressBar.setProgress(progress);
+            if (progress == 100) {
+                progressBar.setVisibility(ProgressBar.GONE);
+                refreshStopButton
+                    .setBackgroundDrawable(getResources().getDrawable(android.R.drawable.ic_menu_rotate));
+                refreshStopButton.setTag(Boolean.FALSE);
+            }
         }
     }
 }
