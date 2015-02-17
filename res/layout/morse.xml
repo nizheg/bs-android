@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/morseResultView"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:background="@android:drawable/title_bar"
+        android:textColor="@android:color/primary_text_dark"
+        android:gravity="center"
+        android:textSize="48sp"
+        android:longClickable="true"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/morseInputView"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:background="@android:drawable/title_bar"
+        android:textColor="@android:color/primary_text_dark"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:longClickable="true"
+        android:id="@+id/signalView">
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,5 +3,6 @@
     <string name="app_name">EN</string>
     <string name="activity_caption_browser">Браузер</string>
     <string name="activity_caption_braille">Брайль</string>
+    <string name="activity_caption_morse">Морзе</string>
     <string name="action_home">На главную страницу</string>
 </resources>

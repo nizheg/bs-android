@@ -24,7 +24,8 @@ public class MainActivity extends Activity {
 
         String[] captions = new String[]{
                 getResources().getString(R.string.activity_caption_browser),
-                getResources().getString(R.string.activity_caption_braille)
+                getResources().getString(R.string.activity_caption_braille),
+                getResources().getString(R.string.activity_caption_morse)
         };
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this,
@@ -34,7 +35,8 @@ public class MainActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             private Class<?>[] activities = new Class<?>[]{
                     BrowserActivity.class,
-                    BrailleActivity.class
+                    BrailleActivity.class,
+                    MorseActivity.class
             };
 
             public void onItemClick(AdapterView<?> parent, View view,

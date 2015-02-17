@@ -3,5 +3,6 @@
     <string name="app_name">EN</string>
     <string name="activity_caption_browser">Browser</string>
     <string name="activity_caption_braille">Braille</string>
+    <string name="activity_caption_morse">Morse</string>
     <string name="action_home">Home</string>
 </resources>

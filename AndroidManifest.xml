@@ -22,5 +22,8 @@
         <activity
             android:name=".activity.BrailleActivity"
             android:label="@string/activity_caption_braille"/>
+        <activity
+            android:name=".activity.MorseActivity"
+            android:label="@string/activity_caption_morse" />
     </application>
 </manifest> 
