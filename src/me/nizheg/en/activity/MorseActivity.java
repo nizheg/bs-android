@@ -10,9 +10,9 @@ import me.nizheg.en.service.SimpleMorseService;
 
 public class MorseActivity extends SubActivity {
 
-    EditText inputView;
-    TextView resultView;
-    SimpleMorseService morseService = new SimpleMorseService();
+    private EditText inputView;
+    private TextView resultView;
+    private SimpleMorseService morseService = new SimpleMorseService();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

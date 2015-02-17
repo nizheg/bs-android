@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class SimpleMorseService {
 
-    Map<String, Character> russianAlphabet = new HashMap<String, Character>();
-    Map<String, Character> englishAlphabet = new HashMap<String, Character>();
-    Map<String, Character> numbers = new HashMap<String, Character>();
-    Map<String, Character> symbols = new HashMap<String, Character>();
+    private Map<String, Character> russianAlphabet = new HashMap<String, Character>();
+    private Map<String, Character> englishAlphabet = new HashMap<String, Character>();
+    private Map<String, Character> numbers = new HashMap<String, Character>();
+    private Map<String, Character> symbols = new HashMap<String, Character>();
 
     public SimpleMorseService() {
         russianAlphabet.put("*-", 'а');
@@ -148,20 +148,6 @@ public class SimpleMorseService {
                 result.append(getNumber(part));
             } else {
                 result.append("#");
-            }
-        }
-        return result.toString();
-    }
-
-    public String invert(String in) {
-        StringBuilder result = new StringBuilder();
-        for (char ch : in.toCharArray()) {
-            if (ch == '*') {
-                result.append("-");
-            } else if (ch == '-') {
-                result.append("*");
-            } else {
-                result.append(ch);
             }
         }
         return result.toString();

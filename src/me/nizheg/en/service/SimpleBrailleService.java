@@ -1,14 +1,13 @@
 package me.nizheg.en.service;
 
-import java.util.HashMap;
-import java.util.Map;
+import android.util.SparseArray;
 
 public class SimpleBrailleService {
 
-    Map<Byte, Character> russianAlphabet = new HashMap<Byte, Character>();
-    Map<Byte, Character> englishAlphabet = new HashMap<Byte, Character>();
-    Map<Byte, Character> numbers = new HashMap<Byte, Character>();
-    Map<Byte, Character> symbols = new HashMap<Byte, Character>();
+    private SparseArray<Character> russianAlphabet = new SparseArray<Character>();
+    private SparseArray<Character> englishAlphabet = new SparseArray<Character>();
+    private SparseArray<Character> numbers = new SparseArray<Character>();
+    private SparseArray<Character> symbols = new SparseArray<Character>();
 
     public SimpleBrailleService() {
         russianAlphabet.put(Byte.valueOf("100000", 2), 'а');

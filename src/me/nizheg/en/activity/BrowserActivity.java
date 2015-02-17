@@ -16,11 +16,11 @@ import me.nizheg.en.R;
 
 public class BrowserActivity extends SubActivity {
 
-    public static final String MY_HOST = "en-nizheg.rhcloud.com";
-    WebView webView;
-    EditText urlView;
-    Button refreshStopButton;
-    ProgressBar progressBar;
+    private static final String MY_HOST = "en-nizheg.rhcloud.com";
+    private WebView webView;
+    private EditText urlView;
+    private Button refreshStopButton;
+    private ProgressBar progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
