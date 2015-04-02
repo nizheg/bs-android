@@ -5,4 +5,7 @@
     <string name="activity_caption_braille">Braille</string>
     <string name="activity_caption_morse">Morse</string>
     <string name="action_home">Home</string>
+    <string name="button_caption_dot" translatable="false">*</string>
+    <string name="button_caption_dash" translatable="false">–</string>
+    <string name="button_caption_backspace" translatable="false">←</string>
 </resources>

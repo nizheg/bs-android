@@ -25,6 +25,7 @@
             android:label="@string/activity_caption_braille"/>
         <activity
             android:name=".activity.MorseActivity"
-            android:label="@string/activity_caption_morse" />
+            android:label="@string/activity_caption_morse"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
     </application>
 </manifest> 
